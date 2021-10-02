@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* `node` : `^12`
+* `node` : `^14`
 * `npm`
 
 ## Project setup
