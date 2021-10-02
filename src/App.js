@@ -3,6 +3,7 @@
 import axios from 'axios'
 import React, { PureComponent } from "react";
 import Files from './Files';
+import CanvasDraw from './CanvasDraw';
 
 class App extends React.Component {
 
@@ -81,7 +82,10 @@ class App extends React.Component {
             <ul>{this.state.files.map((file) =>
               <li className='files-list-item' key={file.id}>
                 <div className='files-list-item-preview'>
-                  
+                  <CanvasDraw
+                    brushColor="black"
+                    imgSrc={file.preview.url}
+                  />
                 </div>
                 <div className='files-list-item-content'>
                   <div className='files-list-item-content-item files-list-item-content-item-1'>{file.name}</div>

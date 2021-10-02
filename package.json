@@ -8,6 +8,9 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.22.0",
+    "catenary-curve": "^1.0.1",
+    "lazy-brush": "^1.0.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -40,6 +43,7 @@
   "devDependencies": {
     "autoprefixer": "^9.8.7",
     "postcss": "^7.0.38",
+    "resize-observer-polyfill": "^1.5.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16"
   }
 }
