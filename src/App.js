@@ -51,14 +51,14 @@ class App extends React.Component {
     <div className="sm:container sm:mx-auto">
       <div className="flex h-full">
         <div className="w-1/5 h-screen bg-purple-100 text-2xl">
-          <div className="mt-10">
+          <div className="m-5 mt-10">
             <a className="font-medium text-blue-500 underline hover:text-blue-700 block" href="#">Take Picture</a>
             <a className="text-blue-500 hover:text-blue-800 block" href="#">Show all pictures</a>
           </div>
         </div>
         
         <div className="w-4/5">
-          <div className="m-5 text-blue-500 text-4xl">Take Picture Page</div>
+          <div className="m-5 text-purple-500 text-4xl font-extrabold">Take Picture Page</div>
 
           <Files
           ref='files'
@@ -66,30 +66,27 @@ class App extends React.Component {
           style={{ height: '100px' }}
           onChange={this.onFilesChange}
           onError={this.onFilesError}
-          multiple
+          multiple={false}
           maxFiles={10}
           maxFileSize={10000000}
           minFileSize={0}
           clickable
         >
-          Drop files here or click to upload
         </Files>
-        <button onClick={this.filesRemoveAll}>Remove All Files</button>
-        <button onClick={this.filesUpload}>Upload</button>
+        {/* <button onClick={this.filesRemoveAll}>Remove All Files</button>
+        <button onClick={this.filesUpload}>Upload</button> */}
         {
           this.state.files.length > 0
-          ? <div className='files-list'>
+          ? <div className='files-list m-5'>
             <ul>{this.state.files.map((file) =>
               <li className='files-list-item' key={file.id}>
                 <div className='files-list-item-preview'>
                   <CanvasDraw
-                    brushColor="black"
+                    lazyRadius="1"
+                    brushRadius="1"
+                    brushColor="red"
                     imgSrc={file.preview.url}
                   />
-                </div>
-                <div className='files-list-item-content'>
-                  <div className='files-list-item-content-item files-list-item-content-item-1'>{file.name}</div>
-                  <div className='files-list-item-content-item files-list-item-content-item-2'>{file.sizeReadable}</div>
                 </div>
                 <div
                   id={file.id}
@@ -99,9 +96,9 @@ class App extends React.Component {
               </li>
             )}</ul>
           </div>
-          : null
+          : <div style={{height: "420px"}}></div>
         }
-
+          <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" style={{marginLeft: "153px"}}>Take Picture</button>
         </div>
       </div>
     </div>

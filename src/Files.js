@@ -210,7 +210,7 @@ class Files extends React.Component {
       accept: this.props.accepts ? this.props.accepts.join() : '',
       multiple: this.props.multiple,
       name: this.props.name,
-      style: { display: 'none' },
+      // style: { display: 'none' },
       ref: (element) => {
         this.inputElement = element
       },
@@ -218,26 +218,34 @@ class Files extends React.Component {
     }
 
     return (
-      <div>
+      <div className="m-5">
+        <div className="md:flex md:items-center mb-6">
+          <div>
+            <input onClick={
+                this.props.clickable === true
+                  ? this.openFileChooser
+                  : null
+              } className="appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none bg-white focus:border-purple-500" id="inline-full-name" type="text" value="Enter picture URL..." />
+            <button
+              onDrop={this.onDrop}
+              onDragOver={this.onDragOver}
+              onDragEnter={this.onDragEnter}
+              onDragLeave={this.onDragLeave}
+              ref={dropzone => { this.dropzone = dropzone }}
+              className="ml-5 flex-shrink-0 border-2 text-teal-500 hover:text-teal-800 text-sm py-2 px-2 rounded text-purple-500 font-extrabold" 
+              onClick={
+                this.props.clickable === true
+                  ? this.openFileChooser
+                  : null
+              }>Load Picture</button>
+          </div>
+        </div>
         <input
           {...inputAttributes}
+          style={{ display: 'none' }}
         />
-        <div
-          className={this.props.className}
-          onClick={
-            this.props.clickable === true
-              ? this.openFileChooser
-              : null
-          }
-          onDrop={this.onDrop}
-          onDragOver={this.onDragOver}
-          onDragEnter={this.onDragEnter}
-          onDragLeave={this.onDragLeave}
-          ref={dropzone => { this.dropzone = dropzone }}
-          style={this.props.style}
-        >
+                     
           {this.props.children}
-        </div>
       </div>
     )
   }
